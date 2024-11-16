@@ -9,6 +9,6 @@ export class TestService {
   }
 
   public add(text: string) {
-    this.db.push(text);
+    this.db.push(text || '空文本');
   }
 }
