@@ -6,13 +6,12 @@ export class TestController {
   constructor(private readonly testService: TestService) { }
 
   @Get()
-  list(): string[] {
-    return this.testService.list();
+  async list() {
+    return await this.testService.list();
   }
 
   @Get('/add')
-  add(@Query('text') text: string) {
-    this.testService.add(text);
-    return 'ok';
+  async add(@Query('text') text: string) {
+    return await this.testService.add(text);
   }
 }
