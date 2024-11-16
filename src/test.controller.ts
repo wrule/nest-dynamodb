@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { TestService } from './test.service';
 
 @Controller('/api/test')
@@ -10,8 +10,8 @@ export class TestController {
     return this.testService.list();
   }
 
-  @Post()
-  add(text: string) {
+  @Get('/add')
+  add(@Query('text') text: string) {
     this.testService.add(text);
     return 'ok';
   }
