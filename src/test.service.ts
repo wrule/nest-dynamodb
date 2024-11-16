@@ -4,11 +4,11 @@ import { Injectable } from '@nestjs/common';
 export class TestService {
   private db: string[] = [];
 
-  public list() {
-    return this.db.slice();
+  public async list() {
+    return Promise.resolve(this.db.slice());
   }
 
-  public add(text: string) {
-    this.db.push(text || '空文本');
+  public async add(text: string) {
+    return Promise.resolve(this.db.push(text || '空文本'));
   }
 }
